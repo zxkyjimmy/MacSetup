@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 function step(){
@@ -16,7 +16,11 @@ step "Get HomeBrew"
 step "Install utils"
 brew install python htop tree podman openssh
 brew install --cask the-unarchiver oracle-jdk mos julia
-ssh-keygen -b 4096
+
+step "Set ssh"
+[ -d ~/.ssh ] || mkdir ~/.ssh
+ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N "" <<< y
+echo "" # newline
 
 step "Miniconda 3"
 brew install --cask miniconda
@@ -33,6 +37,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+step "Get HyperTerminal"
+brew install --cask hyper
 
 step "Copy environment"
 cp .p10k.zsh .zshrc .hyper.js ${HOME}/
