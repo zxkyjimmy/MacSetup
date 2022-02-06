@@ -22,11 +22,6 @@ step "Set ssh"
 ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N "" <<< y
 echo "" # newline
 
-step "Miniconda 3"
-brew install --cask miniconda
-conda init "$(basename "${SHELL}")"
-conda config --set auto_activate_base false
-
 step "Font"
 brew tap homebrew/cask-fonts
 brew install font-sauce-code-pro-nerd-font
@@ -43,3 +38,8 @@ brew install --cask hyper
 
 step "Copy environment"
 cp .p10k.zsh .zshrc .hyper.js ${HOME}/
+
+step "Miniconda 3"
+brew install --cask miniconda
+conda init "$(basename "${SHELL}")"
+conda config --set auto_activate_base false
