@@ -17,14 +17,6 @@ step "Install utils"
 brew install htop tree podman openssh cmake
 brew install --cask the-unarchiver oracle-jdk mos julia
 
-step "Get python & yapf"
-brew install python@3.10 yapf
-[ -d ${HOME}/.config/yapf ] || mkdir -p ${HOME}/.config/yapf
-cat <<EOF | tee ${HOME}/.config/yapf/style
-[style]
-based_on_style = yapf
-EOF
-
 step "Set ssh"
 [ -d ~/.ssh ] || mkdir ~/.ssh
 ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N "" <<< y
@@ -46,6 +38,15 @@ brew install --cask hyper
 
 step "Copy environment"
 cp .p10k.zsh .zshrc .hyper.js ${HOME}/
+
+step "Get python & yapf"
+brew install python@3.10 yapf
+echo 'export PATH="/usr/local/opt/python@3.10/libexec/bin:$PATH"' >> ~/.zshrc
+[ -d ${HOME}/.config/yapf ] || mkdir -p ${HOME}/.config/yapf
+cat <<EOF | tee ${HOME}/.config/yapf/style
+[style]
+based_on_style = yapf
+EOF
 
 step "Miniconda 3"
 brew install --cask miniconda
