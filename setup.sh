@@ -40,8 +40,13 @@ step "Copy environment"
 cp .p10k.zsh .zshrc .hyper.js ${HOME}/
 
 step "Get python & yapf"
-brew install python@3.10 yapf
-echo 'export PATH="/usr/local/opt/python@3.10/libexec/bin:$PATH"' >> ~/.zshrc
+PYTHON="python@3.10"
+brew install ${PYTHON}
+echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/bin:\$PATH" >> ~/.zshrc
+echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin:\$PATH" >> ~/.zshrc
+export PATH=$(brew --prefix)/opt/$PYTHON/bin:$PATH
+export PATH=$(brew --prefix)/opt/$PYTHON/libexec/bin:$PATH
+pip install yapf
 [ -d ${HOME}/.config/yapf ] || mkdir -p ${HOME}/.config/yapf
 cat <<EOF | tee ${HOME}/.config/yapf/style
 [style]
