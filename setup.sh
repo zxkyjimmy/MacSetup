@@ -14,7 +14,7 @@ step "Get HomeBrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 step "Install utils"
-brew install htop tree podman openssh cmake
+brew install htop tree openssh cmake
 brew install --cask the-unarchiver oracle-jdk mos julia
 
 step "Set ssh"
