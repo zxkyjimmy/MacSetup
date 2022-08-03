@@ -32,12 +32,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cp .p10k.zsh .zshrc ${HOME}/
 
 step "Get HyperTerminal"
 brew install --cask hyper
-
-step "Copy environment"
-cp .p10k.zsh .zshrc .hyper.js ${HOME}/
+cp .hyper.js ${HOME}/
 
 step "Get python & yapf"
 PYTHON="python@3.10"
