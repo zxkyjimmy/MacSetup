@@ -27,6 +27,15 @@ brew tap homebrew/cask-fonts
 brew install font-sauce-code-pro-nerd-font
 brew install font-caskaydia-cove-nerd-font
 
+step "Modify Terminal Font"
+plutil -replace Window\ Settings.Basic.Font -data \
+YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T\
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERITFFZOU1NpemVYTlNmRmxhZ3NW\
+TlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QHkNhc2theWRpYUNvdmVOZXJkRm9udENvbXBsZXRl\
+LdIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdu\
+d36FjpCSlLW6xc7V2AAAAAAAAAEBAAAAAAAAABwAAAAAAAAAAAAAAAAAAADh \
+${HOME}/Library/Preferences/com.apple.Terminal.plist
+
 step "Get oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
