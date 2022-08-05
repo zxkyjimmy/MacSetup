@@ -16,6 +16,7 @@ step "Get HomeBrew"
 step "Install utils"
 brew install htop tree openssh cmake
 brew install --cask the-unarchiver oracle-jdk mos julia
+brew install --cask topnotch # hide the notch
 
 step "Set ssh"
 [ -d ~/.ssh ] || mkdir ~/.ssh
