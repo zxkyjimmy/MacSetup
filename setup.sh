@@ -12,6 +12,11 @@ git config --global pull.rebase false
 
 step "Get HomeBrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ $(uname -p) == 'arm' ]]; then
+  step "Set Apple Silicon HomeBrew Path"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ${HOME}/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 step "Install utils"
 brew install htop tree openssh cmake
