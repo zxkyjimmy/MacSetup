@@ -54,7 +54,7 @@ brew install --cask hyper
 cp .hyper.js ${HOME}/
 
 step "Get python & yapf"
-PYTHON="python@3.10"
+PYTHON="python@3.11"
 brew install ${PYTHON}
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/bin:\$PATH" >> ~/.zshrc
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin:\$PATH" >> ~/.zshrc
