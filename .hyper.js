@@ -118,14 +118,18 @@ module.exports = {
         macOptionSelectionMode: 'vertical',
         // Whether to use the WebGL renderer. Set it to false to use canvas-based
         // rendering (slower, but supports transparent backgrounds)
-        webGLRenderer: false,
+        webGLRenderer: true,
         // keypress required for weblink activation: [ctrl|alt|meta|shift]
         // todo: does not pick up config changes automatically, need to restart terminal :/
         webLinksActivationKey: '',
         // if `false` (without backticks and without quotes), Hyper will use ligatures provided by some fonts
-        disableLigatures: false,
+        disableLigatures: true,
         // set to true to disable auto updates
         disableAutoUpdates: false,
+        // set to true to enable screen reading apps (like NVDA) to read the contents of the terminal
+        screenReaderMode: false,
+        // set to true to preserve working directory when creating splits or tabs
+        preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
     },
     // a list of plugins to fetch and install from npm
@@ -134,7 +138,7 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: ["hyper-alt-click", "hyperpower"],
+    plugins: ["hyperpower"],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
