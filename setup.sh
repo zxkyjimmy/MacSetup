@@ -36,7 +36,7 @@ brew install font-caskaydia-cove-nerd-font
 step "Modify Terminal Font"
 osascript -e '
 tell application "Terminal"
-  set font name of settings set "Basic" to "CaskaydiaCove Nerd Font Mono"
+  set font name of settings set "Basic" to "CaskaydiaCove Nerd Font"
   set font size of settings set "Basic" to 16
 end tell
 '
