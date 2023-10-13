@@ -54,18 +54,12 @@ brew install --cask hyper
 cp .hyper.js ${HOME}/
 
 step "Get python & yapf"
-PYTHON="python@3.11"
+PYTHON="python@3.12"
 brew install ${PYTHON}
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/bin:\$PATH" >> ~/.zshrc
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin:\$PATH" >> ~/.zshrc
 export PATH=$(brew --prefix)/opt/$PYTHON/bin:$PATH
 export PATH=$(brew --prefix)/opt/$PYTHON/libexec/bin:$PATH
-pip install yapf
-[ -d ${HOME}/.config/yapf ] || mkdir -p ${HOME}/.config/yapf
-cat <<EOF | tee ${HOME}/.config/yapf/style
-[style]
-based_on_style = google
-EOF
 
 step "Miniconda 3"
 brew install --cask miniconda
