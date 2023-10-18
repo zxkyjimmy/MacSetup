@@ -37,7 +37,7 @@ step "Modify Terminal Font"
 osascript -e '
 tell application "Terminal"
   set font name of settings set "Basic" to "CaskaydiaCove NF Regular"
-  set font size of settings set "Basic" to 16
+  set font size of settings set "Basic" to 14
 end tell
 '
 
