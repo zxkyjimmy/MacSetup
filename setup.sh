@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 set -euo pipefail
 
 function step(){
@@ -36,7 +36,7 @@ brew install font-caskaydia-cove-nerd-font
 step "Modify Terminal Font"
 osascript -e '
 tell application "Terminal"
-  set font name of settings set "Basic" to "CaskaydiaCove NF"
+  set font name of settings set "Basic" to "CaskaydiaCove NF Regular"
   set font size of settings set "Basic" to 16
 end tell
 '
@@ -53,13 +53,11 @@ step "Get HyperTerminal"
 brew install --cask hyper
 cp .hyper.js ${HOME}/
 
-step "Get python & yapf"
+step "Get python"
 PYTHON="python@3.12"
 brew install ${PYTHON}
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/bin:\$PATH" >> ~/.zshrc
 echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin:\$PATH" >> ~/.zshrc
-export PATH=$(brew --prefix)/opt/$PYTHON/bin:$PATH
-export PATH=$(brew --prefix)/opt/$PYTHON/libexec/bin:$PATH
 
 step "Miniconda 3"
 brew install --cask miniconda
