@@ -56,8 +56,8 @@ cp .hyper.js ${HOME}/
 step "Get python"
 PYTHON="python@3.12"
 brew install ${PYTHON}
-echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/bin:\$PATH" >> ~/.zshrc
-echo "export PATH=\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin:\$PATH" >> ~/.zshrc
+echo "export PATH=\$PATH:\$(brew --prefix)/opt/"${PYTHON}"/bin" >> ~/.zshrc
+echo "export PATH=\$PATH:\$(brew --prefix)/opt/"${PYTHON}"/libexec/bin" >> ~/.zshrc
 
 step "Miniconda 3"
 brew install --cask miniconda
